@@ -1,0 +1,77 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+good:
+  first_name: Ahmed
+  middle_name: Mohamed
+  last_name: alaa
+  address: home address street
+  telephone: 1231221
+  mobile: 0121231123
+  occupation: Doctor
+  company_name: Clinic
+  business_telephone: 222112123
+  email: MyString
+  fax: 222112123
+  business_address: address street
+  applicant_id: 3
+
+good2:
+  first_name: Ahmed
+  middle_name: Mohamed
+  last_name: alaa
+  address: home address street
+  telephone: 1231221
+  mobile: 0121231123
+  occupation: Doctor
+  company_name: Clinic
+  business_telephone: 222112123
+  email: MyString
+  fax: 222112123
+  business_address: address street
+  financial: true
+  applicant_id: 3
+
+badFinancial:
+  first_name: Ahmed
+  middle_name: Mohamed
+  last_name: alaa
+  address: home address street
+  telephone: 1231221
+  mobile: 0121231123
+  occupation: Doctor
+  company_name: Clinic
+  business_telephone: 222112123
+  email: MyString
+  fax: 222112123
+  business_address: address street
+  applicant_id: 3
+  financial: nothing
+  
+guardian1:
+  first_name: Ahmed
+  middle_name: Mohamed
+  last_name: Ahmed
+  address: MyText
+  telephone: -A123
+  mobile: 21231
+  occupation: 12314
+  company_name: MyString
+  business_telephone: 122221
+  email: nomail
+  fax: -A123
+  business_address: -01213a
+  applicant_id: 1
+
+guardian2:
+  first_name: -As
+  middle_name: 1212
+  last_name: v12
+  address: Lorem ipsum dolor sit amet, consectetu1111111111111111111111111111111111111111111111111111111111111111111r adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+  telephone: MyString
+  mobile: MyString
+  occupation: MyString
+  company_name: MyString
+  business_telephone: MyString
+  email: MyString
+  fax: ABBB
+  business_address: Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+  applicant_id: 2

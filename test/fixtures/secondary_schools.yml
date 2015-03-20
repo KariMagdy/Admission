@@ -1,0 +1,39 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+
+good:
+  name: ELS
+  address: Nasrcity
+  language: English
+  attended_from: 1995-01-20
+  attended_to: IGCSE
+  certificate_type: Doc
+  graduation_date: 2012-02-23
+  school_type: Private
+  applicant_id: 1
+
+good2:
+  name: ELS
+  address: Nasrcity
+  language: English
+  attended_from: 1995-01-20
+  attended_to: 2005-01-20
+  certificate_type: IG
+  graduation_date: 2012-02-23
+  school_type: Private
+  applicant_id: 1
+  
+  
+school1:
+  name: Egypt 2020 Egypt 2020 Egypt 2020 Egypt 2020
+  address: Egypt 2020 Egypt 2020 Egypt 2020 Egypt 2020
+  language: Spanglish
+  attended_from: 1995-01-20
+  attended_to: any
+  certificate_type: Doc
+  graduation_date: 2012-02-23
+  school_type: undetermined
+  applicant_id: 1
+
+
+

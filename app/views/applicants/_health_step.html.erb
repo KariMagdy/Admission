@@ -1,0 +1,22 @@
+<!--<p align="center" style="font-size: 14px; color:#999999;">Helath Information</p>-->
+<%= f.fields_for :healths do |u| %>
+    <div class="field">
+        <%= u.label :illness , {:class => 'label'}%> &nbsp;
+    	<b><%= u.text_field :illness,{:class => 'span3'}%><%= mark_required(u.object, :illness) %></b>
+    </div>
+    <div class="field">
+        <%= u.label :description, {:class => 'label'}%> &nbsp;
+    	<%=  u.text_area :description, :rows=>4, :cols => 5, :class => 'input-xlarge'%>
+    </div>   
+    <br />
+   <%= u.link_to_remove "Remove This Illness",:class=>'btn btn-info'%>
+   <br />
+<br />  
+<% end %>
+<%= f.link_to_add "Add Another Illness", :healths, :class=>'btn btn-info' %>     
+ <br />
+ <br />   
+    
+  
+    
+    

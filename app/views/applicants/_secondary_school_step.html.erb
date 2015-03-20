@@ -1,0 +1,65 @@
+<!--<p align="center" style="font-size: 14px; color:#999999;">Secondary School Information</p>-->
+<%= f.fields_for :secondary_schools do |u| %>
+<div>
+    <div class="field">
+        <%= u.label :name , {:class => 'label'}%> &nbsp;
+    	<b><%= u.text_field :name ,{:class => 'span3'}%><%= mark_required(u.object, :name) %></b>
+    </div>
+    <div class="field">
+        <%= u.label :address , {:class => 'label'}%> &nbsp;
+    	<b><%=  u.text_area :address, :rows => 3, :cols => 5, :class => 'input-xlarge'%><%= mark_required(u.object, :address) %></b>
+    </div>
+<div class="field">
+	<%= u.label :language , {:class => 'label'}%> &nbsp;
+	<b><%= u.select :language ,options_for_select(["Arabic", "English", "French", "German"],  u.object.language), :include_blank=> true%><%= mark_required(u.object, :language) %></b>
+</div>
+<div class="field">
+	<%= u.label :attended_from , {:class => 'label'}%> &nbsp;
+	<b> <%= u.date_select :attended_from , {:start_year => Time.now.year - 12, :end_year => Time.now.year + 1 , :include_blank=> true},{:class=>'datespan'} %><%= mark_required(u.object, :attended_from) %></b>
+</div>
+<div class="field">
+	<%= u.label :attended_to , {:class => 'label'}%> &nbsp;
+	<b> <%= u.date_select :attended_to , {:start_year => Time.now.year - 6, :end_year => Time.now.year + 1 , :include_blank=> true},{:class=>'datespan'} %><%= mark_required(u.object, :attended_to) %></b>
+</div>
+
+<div class="field">
+	<%= u.label :certificate_type, {:class => 'label'}%> &nbsp;
+	<b><%= u.select :certificate_type, options_for_select(["IG", "American Diploma", "GCSE", "Thanaweya Amma"],  u.object.certificate_type), :include_blank=> true %><%= mark_required(u.object, :certificate_type) %></b>
+</div>
+<div class="field">
+	<%= u.label :graduation_date , {:class => 'label'}%> &nbsp;
+	<b> <%= u.date_select :graduation_date, {:start_year => Time.now.year - 6, :end_year => Time.now.year + 1 , :include_blank=> true},{:class=>'datespan'} %><%= mark_required(u.object, :graduation_date) %></b>
+</div>
+<div class="field">
+	<%= u.label :division , "If Thanaweya Amma Please specify division", {:class => 'label'}%> <br />&nbsp;
+	<%= u.text_field :division ,{:class => 'span3'}%><br />
+</div>
+<div class="field">
+	<%= u.label :school_type , "Was your school", {:class => 'label'}%> &nbsp;
+	<b><%= u.select :school_type, options_for_select(["Private", "Public"], u.object.school_type) , {:include_blank=> true},{:class=>'smallcellspan'} %> <b>?</b><%= mark_required(u.object, :school_type) %></b>
+</div>
+
+<br />
+<%= u.link_to_remove "Remove This School", :class=>'btn btn-info'%> 
+</div>
+<br />
+<% end %>
+
+<%= f.link_to_add "Add Another School", :secondary_schools ,:class=>'btn btn-info'%> 
+<br />
+<br />
+ 
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    

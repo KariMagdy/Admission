@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+good:
+  name: ahmed
+  faculty: faculty
+  major: major
+  city: cairo
+  country: Egypt
+  language: English
+  gpa: 4.0
+  attended_from: 2005-11-11
+  attended_to: 2010-11-11
+  
+   
+  
+one:
+  name: ahmad
+  faculty: newfaculty
+  major: newmajor
+  city: cairo
+  language: French
+  gpa: 7.0
+  

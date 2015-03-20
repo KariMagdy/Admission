@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Undergraduate Student Addmission</title>
+		<%= stylesheet_link_tag  'style', :media => 'all' %>
+		<%= javascript_include_tag "application" %>
+		
+		<%= csrf_meta_tags %>
+		
+	</head>
+	<body>
+		<!--Omnia -->
+		<p align="right">
+			<!--<p class="notice"><%= notice %></p>
+       		<p class="alert"><%= alert %></p>
+       		<div id="user_nav">-->
+			 <% if user_signed_in? %>
+			    Signed in as <%= current_user.email %>. Not you?
+			    <%= link_to "Sign Out", destroy_user_session_path, :method => :delete %>
+			 <% else %>
+			    <%= link_to "Sign Up", new_user_registration_path %> or <%= link_to "Sign In", new_user_session_path %>
+			 <% end %>
+			<!--</div>-->
+		</p>
+		<div id="wrapper">
+			<div id="header">
+				<div id="logo">
+					<a href="#"><%= image_tag ('Nu-Logo.png'),{:height => 72, :width => 101, :alt => "Nile University Logo"} %></a>
+				</div>
+				<div id="slogan">
+					<h2>Creating a Learning Culture</h2>
+				</div>
+				<div id="slogan2">
+					<h2>Undergraduate Student Addmission</h2>
+				</div>
+			</div>
+			<div id="menu">
+				<ul>
+					<li class="first current_page_item">
+						<%= link_to "Home", '/home/index' %>
+					</li>
+					<li>
+						<a href="#">Colleges</a>
+					</li>
+					<li>
+						<a href="#">Tuition</a>
+					</li>
+					<li>
+						<a href="#">Student Life</a>
+					</li>
+					<li>
+						<a href="#">Giving to NU</a>
+					</li>
+					<li class="last">
+					<% if user_signed_in? %>	
+						<%= link_to "MyNU", user_path(:id => current_user.id)%>
+					<% else %>
+						<%= link_to "MyNU", new_user_session_path %>
+					<% end %>
+					</li>
+				</ul>
+			<br class="clearfix" />
+			</div>
+			<div id="page">
+			
+						<!--<%= image_tag ('DSC_0242.jpg'),{:height => 230, :width => 687, :alt => "NU",:class => 'pic'} %>-->
+						
+							<%= yield %>
+											
+			</div>
+			<p></p>
+		<div id="footer" style="background-color:#DCD8D9;">
+			Copyright (c) 2012 <%= link_to "Nile University","http://www.nileu.edu.eg"%>. All rights reserved.
+		</div>
+		
+		<!--end omnia-->
+	</body>
+</html>

@@ -1,0 +1,39 @@
+<div class="sign_up_bg">
+	<h2>Sign Up</h2>
+	<div class="sign_up">
+		<%= form_for @user, :validate => true do |f| %>
+		<!-- <% if @user.errors.any? %>
+		<div class="error_messages">
+			<h2>Form is invalid</h2>
+			<ul>
+				<% for message in @user.errors.full_messages %>
+				<li>
+					<%= message %>
+				</li>
+				<% end %>
+			</ul>
+		</div>
+		<% end %> -->
+		<p>
+			<%= f.label :email%> <%= mark_required(@user, :email) %>
+			<!--<%= image_tag ('required-star.gif'),{:height => 9, :width => 10, :class=>'required'} %>-->
+
+			<br />
+			<%= f.text_field :email, {:class => 'span2', :placeholder => "example@example.com"}%>
+		</p>
+		<p>
+			<%= f.label :password %><%= mark_required(@user, :password) %>
+			<br />
+			<%= f.password_field :password, {:class => 'span2'}  %>
+		</p>
+		<p>
+			<%= f.label :password_confirmation, "Confirm Password" %><%= mark_required(@user, :password) %>
+			<br />
+			<%= f.password_field :password_confirmation, {:class => 'span2'} %>
+		</p>
+		<p>
+			<%= f.submit :class => 'btn'%>
+		</p>
+		<% end %>
+	</div>
+</div>

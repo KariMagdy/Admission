@@ -1,0 +1,34 @@
+<!--<p align="center" style="font-size: 14px; color:#999999;">Admission Information</p>-->
+<%= f.fields_for :admission_information do |u| %>
+    <div class="field">
+        <%= u.label :semester_id , {:class => 'label'}%> &nbsp;
+    	<!-- <%= u.select :semester, options_for_select(["Winter 2012","Spring 2012"], u.object.semester), :include_blank=> true %> -->
+      <b> <%= u.collection_select :semester_id, Semester.where(:status => true), :id, :name, {:include_blank=> true}, {:class=>'span4'}%><%= mark_required(u.object, :semester_id) %></b>
+    </div>
+    <div class="field">
+        <%= u.label :school , {:class => 'label'}%> &nbsp;
+    	<b><%= u.collection_select :school_id, School.where(:status => true), :id, :name , {:include_blank=> true}, {:class=>'span4'}%><%= mark_required(u.object, :school_id) %></b>
+    </div>
+
+    <div class="field" id="programMajors">
+        <%= u.label :major_id , {:class => 'label'}%> &nbsp;
+        <b><%= u.collection_select :major_id , Major.where(:status => true, :school_id => u.object.school_id ), :id, :name , {:include_blank=> true}, {:class=>'span4'}%></b><label class="tooltip1NatID"><b><%= image_tag ('InfoIcon1.png'),{:height => 20, :width => 20, :class=>'required1'} %><span>If not decided, leave it empty</span></b></label>
+    </div>
+<div class="field">
+	<%= u.label :toefl_test_results, {:class => 'label'}%> &nbsp;
+	<label class="tooltip1"><b><%= u.text_field :toefl_test_results,{:class => 'span3'}%><%= mark_required(u.object, :toefl_test_results) %><span>Only numbers are allowed</span></b></label>
+</div>
+<div class="field">
+	<%= u.label :toefl_test_date , {:class => 'label'}%> &nbsp;
+	<b><%= u.date_select :toefl_test_date , {:include_blank=> true},{:class=>'datespan'} %><%= mark_required(u.object, :toefl_test_date) %></b>
+</div>
+<div class="field">
+	<%= u.label :proficiency_test , "Are you applying to NU's Proficiency Test", {:class => 'label'}%><br /> &nbsp;
+	<%= u.select :proficiency_test , options_for_select([["Yes","true"],["No","false"]], u.object.proficiency_test) , {:include_blank=> true},{:class=>'smallcellspan'} %>	
+</div>
+
+<% end %>
+<br />
+   
+    
+   
