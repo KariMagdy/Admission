@@ -53,9 +53,9 @@
 					</li>
 					<li class="last">
 					<% if user_signed_in? %>	
-						<%= link_to "Addmission", user_path(:id => current_user.id)%>
+						<%= link_to "MyNU", user_path(:id => current_user.id)%>
 					<% else %>
-						<%= link_to "Addmission", new_user_session_path %>
+						<%= link_to "MyNU", new_user_session_path %>
 					<% end %>
 					</li>
 				</ul>
@@ -70,7 +70,7 @@
 			</div>
 			<p></p>
 		<div id="footer" style="background-color:#DCD8D9;">
-			Copyright (c) 2012 <%= link_to "Nile University","http://www.nu.edu.eg"%>. All rights reserved.
+			Copyright (c) 2012 <%= link_to "Nile University","http://www.nileu.edu.eg"%>. All rights reserved.
 		</div>
 		
 		<!--end omnia-->
