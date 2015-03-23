@@ -1,5 +1,5 @@
 <!--<p align="center" style="font-size: 14px; color:#999999;">College Information</p>-->
-<p style="color:red">Only in case of transferring from another university</p>
+<p>Only in case of transferring from another university</p>
 <%= f.fields_for :colleges do |u| %>
 <div>
     <div class="field">

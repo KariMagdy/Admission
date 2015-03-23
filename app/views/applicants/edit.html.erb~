@@ -70,17 +70,17 @@
 				</div>
 			</fieldset>
 			<fieldset>
-				<legend style="display: none;">Secondary School</legend>
-				<div id="secondaryform">
-					<%= render "secondary_school_step", :f => f %>
-				</div>
-			</fieldset>	
-			<fieldset>
 				<legend style="display: none;">Guardians</legend>
 				<div id="guardianform">
 					<%= render "guardian_step", :f => f %>
 				</div>
-			</fieldset>		
+			</fieldset>
+			<fieldset>
+				<legend style="display: none;">Secondary School</legend>
+				<div id="secondaryform">
+					<%= render "secondary_school_step", :f => f %>
+				</div>
+			</fieldset>			
 			<fieldset>
 				<legend style="display: none;">College</legend>
 				<div id="collegeform">

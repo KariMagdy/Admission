@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120503114654) do
+ActiveRecord::Schema.define(:version => 20150323125111) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -32,8 +32,6 @@ ActiveRecord::Schema.define(:version => 20120503114654) do
     t.text     "address"
     t.string   "telephone"
     t.string   "mobile"
-    t.string   "fax"
-    t.string   "address_type"
     t.integer  "applicant_id"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
@@ -77,21 +75,18 @@ ActiveRecord::Schema.define(:version => 20120503114654) do
     t.date     "date_of_birth"
     t.string   "place_of_birth"
     t.string   "gender"
-    t.string   "military_status",         :default => "Does not apply"
     t.string   "national_id"
     t.date     "national_id_expiry_date"
     t.string   "passport_number"
     t.string   "country_of_issuance"
     t.date     "passport_expiry_date"
-    t.text     "academic_honours"
-    t.text     "extra_activities"
     t.string   "transportation"
     t.string   "photo_file_name"
     t.string   "photo_content_type"
     t.integer  "photo_file_size"
     t.datetime "photo_updated_at"
-    t.datetime "created_at",                                            :null => false
-    t.datetime "updated_at",                                            :null => false
+    t.datetime "created_at",                                          :null => false
+    t.datetime "updated_at",                                          :null => false
     t.integer  "user_id"
     t.string   "status",                  :default => "Just Created"
     t.boolean  "checkSecondary"
@@ -142,16 +137,12 @@ ActiveRecord::Schema.define(:version => 20120503114654) do
     t.string   "telephone"
     t.string   "mobile"
     t.string   "occupation"
-    t.string   "company_name"
-    t.string   "business_telephone"
     t.string   "email"
-    t.string   "fax"
-    t.text     "business_address"
     t.string   "relation"
     t.boolean  "financial"
     t.integer  "applicant_id"
-    t.datetime "created_at",         :null => false
-    t.datetime "updated_at",         :null => false
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
   end
 
   create_table "healths", :force => true do |t|
@@ -270,15 +261,5 @@ ActiveRecord::Schema.define(:version => 20120503114654) do
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
-
-  create_table "works", :force => true do |t|
-    t.string   "employer"
-    t.date     "worked_from"
-    t.date     "worked_to"
-    t.text     "tasks",        :limit => 255
-    t.integer  "applicant_id"
-    t.datetime "created_at",                  :null => false
-    t.datetime "updated_at",                  :null => false
-  end
 
 end

@@ -32,6 +32,7 @@
 </div>
 <div class="field">
 	<%= u.label :division , "If Thanaweya Amma Please specify division", {:class => 'label'}%> <br />&nbsp;
+	<%= u.text_field :division ,{:class => 'span3'}%><br />
 	<b><%= u.select :division, options_for_select(["Science", "Mathematics", "Literature"], u.object.division) , {:class=>'smallcellspan'} %> <b>?</b><%= mark_required(u.object, :school_type) %></b>
 </div>
 <div class="field">

@@ -1,0 +1,9 @@
+class RemoveFaxFromAdress < ActiveRecord::Migration
+  def up
+    remove_column :adresses, :Fax
+      end
+
+  def down
+    add_column :adresses, :Fax, :Text
+  end
+end

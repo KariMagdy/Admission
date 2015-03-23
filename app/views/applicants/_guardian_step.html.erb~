@@ -31,11 +31,24 @@
         <%= u.label :occupation , {:class => 'label'}%> &nbsp;
     <label class="tooltip1"><b><%=  u.text_field :occupation ,{:class => 'span3'}%><%= mark_required(u.object, :occupation) %><span>Only alphabets are allowed</span></b></label>
     </div>
-
+<div class="field">
+	<%= u.label :company_name , {:class => 'label'}%> &nbsp;
+	<b><%= u.text_field :company_name ,{:class => 'span3'}%><%= mark_required(u.object, :company_name) %></b>
+</div>
+<div class="field">
+	<%= u.label :business_telephone , {:class => 'label'}%> &nbsp;
+	<b><%= u.telephone_field :business_telephone ,{:class => 'span3'}%></b><label class="tooltip1NatID"><b><%= image_tag ('InfoIcon1.png'),{:height => 20, :width => 20, :class=>'required1'} %><span>Please fill in guardian's business telphone number or guardian's email. Only numbers are allowed</span></b></label>
+</div>
 <div class="field">
 	<%= u.label :email, "E-mail" , {:class => 'label'}%> &nbsp;
 	<b><%= u.email_field :email ,{:class => 'span3', :placeholder => "example@example.com"}%></b><label class="tooltip1NatID"><b><%= image_tag ('InfoIcon1.png'),{:height => 20, :width => 20, :class=>'required1'} %><span>Please fill in guardian's business telphone number or guardian's email. Only vaild email format is allowed</span></b></label>
 </div>
+ 
+<div class="field">
+	<%= u.label :business_address , {:class => 'label'}%> &nbsp;
+	<%= u.text_area :business_address, :rows=>3, :cols =>5, :class => 'input-xlarge'%>
+</div>
+
 
 <div class="field">
 	<%= u.label :relation , {:class => 'label'}%> &nbsp;

@@ -27,7 +27,8 @@ class Guardian < ActiveRecord::Base
   end 
   
   def a_contact_present 
-    errors.add(:email, "can't be blank") if email.blank? 
+    errors.add(:business_telephone, "can't be blank") if business_telephone.blank? && email.blank? 
+    errors.add(:email, "can't be blank") if business_telephone.blank? && email.blank? 
   end 
   
 end

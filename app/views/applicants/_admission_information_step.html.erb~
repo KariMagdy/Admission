@@ -22,6 +22,10 @@
 	<%= u.label :toefl_test_date , {:class => 'label'}%> &nbsp;
 	<b><%= u.date_select :toefl_test_date , {:include_blank=> true},{:class=>'datespan'} %><%= mark_required(u.object, :toefl_test_date) %></b>
 </div>
+<div class="field">
+	<%= u.label :proficiency_test , "Are you applying to NU's Proficiency Test", {:class => 'label'}%><br /> &nbsp;
+	<%= u.select :proficiency_test , options_for_select([["Yes","true"],["No","false"]], u.object.proficiency_test) , {:include_blank=> true},{:class=>'smallcellspan'} %>	
+</div>
 
 <% end %>
 <br />
