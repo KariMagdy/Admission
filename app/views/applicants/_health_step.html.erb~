@@ -1,7 +1,7 @@
 <!--<p align="center" style="font-size: 14px; color:#999999;">Helath Information</p>-->
 <%= f.fields_for :healths do |u| %>
     <div class="field">
-        <%= u.label :illness ,"have you ever had any serious mental illness?", {:class => 'label'}%> &nbsp;</br>
+        <%= u.label :illness ,"have you ever had any serious mental illness?", {:class => 'label'}%> &nbsp;<br/>
 				<b><%= u.select :illness, options_for_select(["No", "Yes"], u.object.illness) , {:class=>'smallcellspan'} %> <%= mark_required(u.object, :school_type) %><%= mark_required(u.object, :illness) %></b>
     </div>
 		</br>
