@@ -50,4 +50,8 @@
 	<%= f.label :passport_expiry_date, {:class => 'label'}%> &nbsp;
 	<b><%= f.date_select :passport_expiry_date , {:start_year => Time.now.year - 2, :end_year => Time.now.year + 7, :include_blank => true},{:class=>'datespan'} %><%= mark_required(@applicant, :passport_expiry_date) %></b>
 </div>
+<div class="field">
+	<%= f.label :transportation, {:class => 'label'}%> &nbsp;
+	<b> <%= f.select :transportation, options_for_select(["Private", "Nu buses"], @applicant.transportation), {:include_blank => true},{:class=>'smallcellspan'}%><%= mark_required(@applicant, :transportation) %></b>
+</div>
 <br />

@@ -357,7 +357,18 @@
 			</tr>
 		</thead>
 		<tbody>
-
+			<tr>
+				<td><b>What were the most important factors that influenced your decision to apply to NU? </b></td>
+				<td><%= @applicant.uni_related_info.factors %></td>
+			</tr>
+			<tr>
+				<td><b>What majors/specializations at NU attract you the most?</b></td>
+				<td><%= @applicant.uni_related_info.majors %></td>
+			</tr>
+			<tr>
+				<td><b>What other universities are you applying to?</b></td>
+				<td><%= @applicant.uni_related_info.other_universities %></td>
+			</tr>
 			<tr>
 				<td><b>What was the most important factor that infuenced your decision to apply to other universities?</b></td>
 				<td><%= @applicant.uni_related_info.factors_other_universities %></td>
