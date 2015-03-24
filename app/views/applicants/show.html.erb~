@@ -284,35 +284,6 @@
 </div>
 <% end %>
 
-<% if @applicant.works!=nil and @applicant.works.size > 0 %>
-<h2 style="font-size: 30px; color:#999999;">Work</h2>
-<div class="well">
-	<% @applicant.works.each do |work|%>
-	<table class="table">
-		<thead>
-			<tr>
-				<td><b>Employer</b></td>
-				<td><%= work.employer %></td>
-			</tr>
-		</thead>
-		<tbody>
-			<tr>
-				<td><b>Worked From</b></td>
-				<td><%= work.worked_from %></td>
-			</tr>
-			<tr>
-				<td><b>Worked To</b></td>
-				<td><%= work.worked_to %></td>
-			</tr>
-			<tr>
-				<td><b>Tasks</b></td>
-				<td><%= work.tasks %></td>
-			</tr>
-		</tbody>
-	</table>
-	<% end %>
-</div>
-<% end %>
 
 <% if @applicant.healths!=nil and @applicant.healths.size > 0 %>
 <h2 style="font-size: 30px; color:#999999;">Health</h2>

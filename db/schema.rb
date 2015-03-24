@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150323125111) do
+ActiveRecord::Schema.define(:version => 20150324115825) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -76,7 +76,6 @@ ActiveRecord::Schema.define(:version => 20150323125111) do
     t.string   "place_of_birth"
     t.string   "gender"
     t.string   "national_id"
-    t.date     "national_id_expiry_date"
     t.string   "passport_number"
     t.string   "country_of_issuance"
     t.date     "passport_expiry_date"
@@ -85,15 +84,15 @@ ActiveRecord::Schema.define(:version => 20150323125111) do
     t.string   "photo_content_type"
     t.integer  "photo_file_size"
     t.datetime "photo_updated_at"
-    t.datetime "created_at",                                          :null => false
-    t.datetime "updated_at",                                          :null => false
+    t.datetime "created_at",                                       :null => false
+    t.datetime "updated_at",                                       :null => false
     t.integer  "user_id"
-    t.string   "status",                  :default => "Just Created"
+    t.string   "status",               :default => "Just Created"
     t.boolean  "checkSecondary"
     t.boolean  "checkCollege"
     t.boolean  "checkWork"
     t.text     "notes"
-    t.boolean  "closed",                  :default => false
+    t.boolean  "closed",               :default => false
   end
 
   create_table "attachments", :force => true do |t|

@@ -32,13 +32,12 @@ class ApplicantsController < ApplicationController
     
     @applicant.healths.build
     @applicant.secondary_schools.build 
-    @applicant.works.build
     @applicant.colleges.build
     #2.times do
     
     #end
    
-    2.times do
+    1.times do
       @applicant.addresses.build
       @applicant.guardians.build
       
@@ -137,27 +136,11 @@ class ApplicantsController < ApplicationController
      @reasons<<"Other " if @applicant.uni_related_info.uni_choice.other
      @reasons<<"#{@applicant.uni_related_info.uni_choice.specify_other} \n" if @applicant.uni_related_info.uni_choice.specify_other != nil
      
-     @reasons2="" 
-     @reasons2<<"Quality of education \n" if @applicant.uni_related_info.other_choice.quality
-     @reasons2<<"Reputation \n" if @applicant.uni_related_info.other_choice.reputation
-     @reasons2<<"Facilities \n" if @applicant.uni_related_info.other_choice.facilities
-     @reasons2<<"Location \n" if @applicant.uni_related_info.other_choice.location
-     @reasons2<<"Fields of study " if @applicant.uni_related_info.other_choice.fields_of_study
-     @reasons2<<"#{@applicant.uni_related_info.other_choice.specify_fields_of_study} \n" if @applicant.uni_related_info.other_choice.specify_fields_of_study != nil
-     @reasons2<<"Other " if @applicant.uni_related_info.other_choice.other
-     @reasons2<<"#{@applicant.uni_related_info.other_choice.specify_other} \n" if @applicant.uni_related_info.other_choice.specify_other != nil
      
      
      @applicant.uni_related_info.hear_of_uni=@reasons
-     @applicant.uni_related_info.factors_other_universities=@reasons2
      
-     if @applicant.military_status==nil
-       @applicant.military_status="Does not apply"
-     end 
-     
-      if @applicant.gender=="Female"
-       @applicant.military_status="Does not apply"
-     end
+
      
      
      # if @applicant.secondary_schools.size == 2
@@ -196,17 +179,6 @@ class ApplicantsController < ApplicationController
      #before validation..
      # delete extra address
      logger.debug "Before Validation"
-     if @applicant.addresses[0].address_type=="Both"
-       @b=@applicant.addresses[1]
-       if @b != nil
-         @applicant.addresses.destroy(@b)
-       end
-     elsif @applicant.addresses[1].address_type=="Both"
-       @b=@applicant.addresses[0]
-       if @b != nil
-         @applicant.addresses.destroy(@b)     
-       end
-     end
      
         # delete extra secondary schools
      # if @applicant.checkSecondary
@@ -224,13 +196,6 @@ class ApplicantsController < ApplicationController
        # end
      # end
 #      
-     # # delete extra Work
-     # if @applicant.checkWork
-       # @b=@applicant.works[1]
-       # if @b != nil
-         # @applicant.works.destroy(@b)
-       # end
-     # end
        
      
      logger.debug @applicant.addresses    
@@ -332,28 +297,9 @@ class ApplicantsController < ApplicationController
      @reasons<<"Other " if @applicant.uni_related_info.uni_choice.other
      @reasons<<"#{@applicant.uni_related_info.uni_choice.specify_other} \n" if @applicant.uni_related_info.uni_choice.specify_other != nil
      
-     @reasons2="" 
-     @reasons2<<"Quality of education \n" if @applicant.uni_related_info.other_choice.quality
-     @reasons2<<"Reputation \n" if @applicant.uni_related_info.other_choice.reputation
-     @reasons2<<"Facilities \n" if @applicant.uni_related_info.other_choice.facilities
-     @reasons2<<"Location \n" if @applicant.uni_related_info.other_choice.location
-     @reasons2<<"Fields of study " if @applicant.uni_related_info.other_choice.fields_of_study
-     @reasons2<<"#{@applicant.uni_related_info.other_choice.specify_fields_of_study} \n" if @applicant.uni_related_info.other_choice.specify_fields_of_study != nil
-     @reasons2<<"Other " if @applicant.uni_related_info.other_choice.other
-     @reasons2<<"#{@applicant.uni_related_info.other_choice.specify_other} \n" if @applicant.uni_related_info.other_choice.specify_other != nil
-     
      
      @applicant.uni_related_info.hear_of_uni=@reasons
-     @applicant.uni_related_info.factors_other_universities=@reasons2
-     
-     if @applicant.military_status==nil
-       @applicant.military_status="Does not apply"
-     end
-     
-     if @applicant.gender=="Female"
-       @applicant.military_status="Does not apply"
-     end
-     
+
      
      # if @applicant.secondary_schools.size == 2
        # if @applicant.secondary_schools[0].id > @applicant.secondary_schools[1].id 
@@ -393,17 +339,6 @@ class ApplicantsController < ApplicationController
      #before validation..
      # delete extra address
      logger.debug "Before Validation"
-     if @applicant.addresses[0].address_type=="Both"
-       @b=@applicant.addresses[1]
-       if @b != nil
-         @applicant.addresses.destroy(@b)
-       end
-     elsif @applicant.addresses[1]!=nil and @applicant.addresses[1].address_type=="Both"
-       @b=@applicant.addresses[0]
-       if @b != nil
-         @applicant.addresses.destroy(@b)     
-       end
-     end
      # # delete extra secondary schools
      # if @applicant.checkSecondary
        # @b=@applicant.secondary_schools[1]
@@ -420,13 +355,6 @@ class ApplicantsController < ApplicationController
        # end
      # end
 #      
-     # # delete extra Work
-     # if @applicant.checkWork
-       # @b=@applicant.works[1]
-       # if @b != nil
-         # @applicant.works.destroy(@b)
-       # end
-     # end
      
      logger.debug @applicant.addresses    
      logger.debug "checking!!!!!!!!!!!!!!!!!!!!!!!"

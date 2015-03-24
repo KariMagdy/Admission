@@ -9,7 +9,6 @@ class Applicant < ActiveRecord::Base
   has_one :admission_information, :dependent => :destroy
   has_many :secondary_schools, :dependent => :destroy, :order => "id ASC"
   has_many :colleges, :dependent => :destroy, :order => "id ASC"
-  has_many :works, :dependent => :destroy, :order => "id ASC"
   has_one :attachment, :dependent => :destroy
   has_many :guardians, :dependent => :destroy, :order => "id ASC"
   has_many :healths, :dependent => :destroy, :order => "id ASC"
@@ -21,12 +20,11 @@ class Applicant < ActiveRecord::Base
   validates :middle_name,  :format => {:with => /^[a-zA-Z]+$/, :message => "middle name contains non alphabetical characters"}
   validates :last_name, :format => {:with => /^[a-zA-Z]+$/, :message => "last name contains non alphabetical characters"}
   validates :place_of_birth, :format => {:with => /^\w+[^\d]\,\s*\w+[^\d]$/, :message => "Place of Birth contains non alphabetical characters or not in the format City, Country"}
-  #validates_date :national_id_expiry_date, :after => lambda { Date.current } , :allow_blank => true
   validates_date :passport_expiry_date, :after => lambda { Date.current } , :allow_blank => true
   
   #validates_attachment_presence :photo
   #validates_attachment_content_type :photo, :content_type=>['image/jpeg', 'image/png', 'image/gif'], :message => 'Image must be of type jpeg, png or gif'
-  validates_date :date_of_birth, :passport_expiry_date, :national_id_expiry_date , :allow_blank => true
+  validates_date :date_of_birth, :passport_expiry_date, :allow_blank => true
 
   validates_inclusion_of :gender, :in => ["Female", "Male"]
   #validates_inclusion_of :military_status, :in => ["Completed", "Exempted","Postponed", "Does not apply"]
@@ -65,7 +63,7 @@ class Applicant < ActiveRecord::Base
   attr_writer :current_step
   accepts_nested_attributes_for :addresses
   accepts_nested_attributes_for :admission_information,  :guardians, :attachment,  :uni_related_info 
-  accepts_nested_attributes_for :colleges,:secondary_schools,:healths, :works, :allow_destroy => true
+  accepts_nested_attributes_for :colleges,:secondary_schools,:healths, :allow_destroy => true
   # attr_accessor :reasons
   # attr_accessor :reasons2
   # attr_accessor :checkSecondary
@@ -76,7 +74,7 @@ class Applicant < ActiveRecord::Base
   #validates_associated :addresses, :admission_information,:guardians, :secondary_schools, :colleges, :works, :attachment, :healths, :uni_related_info #,  :update
   validate :a_number_present
   validate :date_present
-  validates_associated :addresses,:guardians, :secondary_schools, :colleges, :works, :healths #,  :update
+  validates_associated :addresses,:guardians, :secondary_schools, :healths #,  :update
   
   def to_s
     return "#{first_name} #{last_name}"
@@ -92,9 +90,6 @@ class Applicant < ActiveRecord::Base
   end
   
   def date_present 
-    errors.add(:national_id_expiry_date, "can't be blank") if !national_id.blank? and national_id_expiry_date.blank?
-    errors.add(:country_of_issuance, "can't be blank") if !passport_number.blank? and country_of_issuance.blank?
-    errors.add(:passport_expiry_date, "can't be blank") if !passport_number.blank? and passport_expiry_date.blank?
   end
   
   def atleast_one

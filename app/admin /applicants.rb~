@@ -70,7 +70,9 @@ ActiveAdmin.register Applicant do
         column :place_of_birth
         column :gender
         
+        column :military_status
         column :national_id
+        column :national_id_expiry_date
         column :passport_number
         column :country_of_issuance
         column :passport_expiry_date
