@@ -44,10 +44,6 @@
 				<td><%= @applicant.national_id %></td>
 			</tr>
 			<tr>
-				<td><b>National ID Expiry Date</b></td>
-				<td><%= @applicant.national_id_expiry_date %></td>
-			</tr>
-			<tr>
 				<td><b>Passport Number</b></td>
 				<td><%= @applicant.passport_number %></td>
 			</tr>
@@ -58,18 +54,6 @@
 			<tr>
 				<td><b>Passport Expiry Date</b></td>
 				<td><%= @applicant.passport_expiry_date %></td>
-			</tr>
-			<tr>
-				<td><b>Academic Honours</b></td>
-				<td><%= @applicant.academic_honours %></td>
-			</tr>
-			<tr>
-				<td><b>Extra Activities</b></td>
-				<td><%= @applicant.extra_activities %></td>
-			</tr>
-			<tr>
-				<td><b>Transportation</b></td>
-				<td><%= @applicant.transportation %></td>
 			</tr>
 		</tbody>
 	</table>

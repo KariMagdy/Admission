@@ -55,18 +55,6 @@
 				<td><b>Passport Expiry Date</b></td>
 				<td><%= @applicant.passport_expiry_date %></td>
 			</tr>
-			<tr>
-				<td><b>Academic Honours</b></td>
-				<td><%= @applicant.academic_honours %></td>
-			</tr>
-			<tr>
-				<td><b>Extra Activities</b></td>
-				<td><%= @applicant.extra_activities %></td>
-			</tr>
-			<tr>
-				<td><b>Transportation</b></td>
-				<td><%= @applicant.transportation %></td>
-			</tr>
 		</tbody>
 	</table>
 </div>
@@ -349,7 +337,10 @@
 			</tr>
 		</thead>
 		<tbody>
-
+			<tr>
+				<td><b>Transportation</b></td>
+				<td><%= @applicant.transportation %></td>
+			</tr>
 			<tr>
 				<td><b>What was the most important factor that infuenced your decision to apply to other universities?</b></td>
 				<td><%= @applicant.uni_related_info.factors_other_universities %></td>

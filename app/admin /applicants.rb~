@@ -70,9 +70,7 @@ ActiveAdmin.register Applicant do
         column :place_of_birth
         column :gender
         
-        column :military_status
         column :national_id
-        column :national_id_expiry_date
         column :passport_number
         column :country_of_issuance
         column :passport_expiry_date
@@ -437,15 +435,11 @@ end
         row :place_of_birth
         row :gender
         
-        row :military_status
         row :national_id
-        row :national_id_expiry_date
         row :passport_number
         row :country_of_issuance
         row :passport_expiry_date
-        
-        row :academic_honours
-        row :extra_activities
+
         row :transportation
         row :status
         row :closed
@@ -473,16 +467,12 @@ end
         row :date_of_birth
         row :place_of_birth
         row :gender
-        
-        row :military_status
+
         row :national_id
-        row :national_id_expiry_date
         row :passport_number
         row :country_of_issuance
         row :passport_expiry_date
         
-        row :academic_honours
-        row :extra_activities
         row :transportation
         row :status
         row :closed
@@ -506,15 +496,9 @@ end
       column "Mobile" do |address|
         address.mobile
       end
-      column "Fax" do |address|
-        address.fax
-      end
       # column "Email" do |address|
         # address.email
       # end
-      column "Address Type" do |address|
-        address.address_type
-      end
       column "Application" do |address|
         address.applicant_id
       end
@@ -529,7 +513,6 @@ end
       #row :applying_to
       row :toefl_test_results
       row :toefl_test_date
-      row :proficiency_test
       #row :program_id
       row "School" do
             applicant.admission_information.school
@@ -549,20 +532,6 @@ end
             "No Document Uploaded"
           end
         end
-      row :personal_experience do
-        if app.attachment.personal_experience.file?  
-          link_to image_tag(app.attachment.personal_experience.url(:thumb)), app.attachment.personal_experience.url
-        else
-          "No Document Uploaded"
-        end  
-      end
-      row :additional_information do
-        if app.attachment.additional_information.file?
-          link_to image_tag(app.attachment.additional_information.url(:thumb)), app.attachment.additional_information.url
-        else
-          "No Document Uploaded"
-        end
-      end
     end
   end
   end
@@ -598,9 +567,6 @@ end
       end
       column "Email" do |guardian|
         guardian.email
-      end
-      column "Fax" do |guardian|
-        guardian.fax
       end
       column "Business Address" do |guardian|
         guardian.business_address
@@ -690,25 +656,6 @@ end
     end
   end
 
-    panel "Work" do
-    table_for applicant.works do
-      column "Employer" do |work|
-        work.employer
-      end
-      column "Worked From" do |work|
-        work.worked_from
-      end
-      column "Worked To" do |work|
-        work.worked_to
-      end
-      column "Tasks" do |work|
-        work.tasks
-      end
-      column "Application" do |work|
-        work.applicant_id
-      end
-    end
-  end
   
   panel "Health" do
     table_for applicant.healths do
