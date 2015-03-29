@@ -559,17 +559,8 @@ end
       column "Occupation" do |guardian|
         guardian.occupation
       end
-      column "Company Name" do |guardian|
-        guardian.company_name
-      end
-      column "Business Telephone" do |guardian|
-        guardian.business_telephone
-      end
       column "Email" do |guardian|
         guardian.email
-      end
-      column "Business Address" do |guardian|
-        guardian.business_address
       end
       column "Relationship to Applicant" do |guardian|
         guardian.relation

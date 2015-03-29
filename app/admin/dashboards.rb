@@ -1,5 +1,74 @@
 ActiveAdmin::Dashboards.build do
 
+#Within DashboardController
+      def index
+        if defined? CanCan then
+            authorize! :index, self.class.name
+        end
+        @dashboard_sections = find_sections
+        render_or_default 'index'
+      end
+
+section "Recent Applicants" , :priority => 1 , :if => proc{ cannot?(:manage, Applicant) } do
+    table_for Applicant.where(:status => "Approved").order("created_at desc").limit(10) do
+      column :id do |applicant|
+        link_to applicant.id, admin_applicant_path(applicant)
+     end
+      column :name do |applicant|
+        link_to applicant.first_name, admin_applicant_path(applicant)
+      end
+      column :created_at
+      column :status do |applicant|
+        strong {applicant.status}
+      end
+    end
+    strong { link_to "View All Applicants", admin_applicants_path }
+  end
+
+
+
+section "Statistics" , :priority => 1 , :if => proc{ can?(:manage, Applicant) } do  
+  div  :class => 'stat' do
+    render 'statistics'
+  end
+end
+
+section "Applications", :priority => 2, :if => proc{ can?(:manage, Applicant) } do
+  # table_for Applicant.limit(1) do
+    # column :all do |applicant|
+          # strong {Applicant.count}
+    # end
+    # column :submitted do |applicant|
+          # strong { Applicant.where(:status => "Submitted").count}
+    # end
+    # column :approved do |applicant|
+          # strong { Applicant.where(:status => "Approved").count}
+    # end
+    # column :rejected do |applicant|
+          # strong { Applicant.where(:status => "Rejected").count}
+    # end
+  # end
+  div do
+    render 'stats'
+  end
+end
+
+section "Recent Applicants" , :priority => 3 , :if => proc{ can?(:manage, Applicant) } do
+    table_for Applicant.order("created_at desc").limit(10) do
+      column :id do |applicant|
+        link_to applicant.id, admin_applicant_path(applicant)
+     end
+      column :name do |applicant|
+        link_to applicant.first_name, admin_applicant_path(applicant)
+      end
+      column :created_at
+      column :status do |applicant|
+        strong {applicant.status}
+      end
+    end
+    strong { link_to "View All Applicants", admin_applicants_path }
+  end
+
   # Define your dashboard sections here. Each block will be
   # rendered on the dashboard in the context of the view. So just
   # return the content which you would like to display.
