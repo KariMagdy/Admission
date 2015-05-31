@@ -50,8 +50,6 @@ module Admission
     # parameters by using an attr_accessible or attr_protected declaration.
     # config.active_record.whitelist_attributes = true
 
-config.paths['app/views'] << 'app/views/devise'
-
     # Enable the asset pipeline
     config.assets.enabled = true
 
